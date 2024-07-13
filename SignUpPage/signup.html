@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <header>
+        <h1>COLLEGE HUB</h1>
+    </header>
+    <main>
+        <fieldset>
+            <legend> <b>Sign Up</b></legend>
+            <form class="signup" name="signupForm" method="POST">
+                <input type="email" name="email" id="signEmail" placeholder="Email">
+                <input type="text" name="name" id="signName" placeholder="Username">
+                <input type="password" name="password" id="signPassword" placeholder="Password">
+                <div class="container">
+                    <button type="submit" class="button" onclick="validateSignupForm()" value="SignUp">Sign Up </button>
+                </div>
+            </form>
+    </fieldset>
+    </main>
+    <footer>
+        <p>&copy; 2024 CollegeHUB. All rights reserved.</p>
+    </footer>
+    <script src="signup.js"></script>
+</body>
+</html>

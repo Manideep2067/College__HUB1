@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CollegeHUB - Attendance</title>
+    <link rel="stylesheet" href="attendance.css">
+</head>
+<body>
+    <header>
+        <h1>CollegeHUB</h1>
+        <nav>
+            <ul>
+                <li><a href="/HomePage/index.html">Home</a></li>
+                <li><a href="/HomePage/CoursesPage/course.html">Courses</a></li>
+                <li><a href="/HomePage/SyllabusPage/syllabus.html">Syllabus</a></li>
+                <li><a href="#">Library</a></li>
+                <li><a href="/HomePage/AttendancePage/attendance.html">Attendance</a></li>
+                <li><a href="/HomePage/GradesPage/grades.html">Grades</a></li>
+                <li><a href="/FrontPage/frontPage.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="attendance-section">
+            <h2>Attendance Tracking</h2>
+            <form id="attendance-form">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Present</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendance-tbody">
+                        <!-- Student records will be dynamically added here -->
+                    </tbody>
+                </table>
+                <button type="submit">Submit Attendance</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 CollegeHUB. All rights reserved.</p>
+    </footer>
+    <script src="attendance.js"></script>
+</body>
+</html>

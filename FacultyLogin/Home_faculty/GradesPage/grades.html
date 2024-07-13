@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CollegeHUB - Faculty Grade Submission</title>
+    <link rel="stylesheet" href="grades.css">
+</head>
+<body>
+    <header>
+        <h1>CollegeHUB</h1>
+        <nav>
+            <ul>
+                <li><a href="/HomePage/index.html">Home</a></li>
+                <li><a href="/FacultyLogin/Home_faculty/CoursesPage/course.html" target="_blank">Courses</a></li>
+                <li><a href="/FacultyLogin/Home_faculty/SyllabusPage/syllabus.html" target="_blank">Syllabus</a></li>
+                <li><a href="#">Library</a></li>
+                <li><a href="/FacultyLogin/Home_faculty/AttendancePage/attendance.html" target="_blank">Attendance</a></li>
+                <li><a href="/FacultyLogin/Home_faculty/GradesPage/grades.html" target="_blank">Grades</a></li>
+                <li><a href="/FrontPage/frontPage.html" target="_blank">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="grades-section">
+            <h2>Submit Grades</h2>
+            <form id="grades-form">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody id="grades-tbody">
+                        <tr>
+                            <td><input type="text" class="student-id" required></td>
+                            <td><input type="text" class="student-name" required></td>
+                            <td><input type="text" class="student-grade" required></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" onclick="submitGrades()">Submit Grades</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 CollegeHUB. All rights reserved.</p>
+    </footer>
+    <script src="grades.js"></script>
+</body>
+</html>

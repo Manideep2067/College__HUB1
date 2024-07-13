@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student - View Attendance</title>
+    <link rel="stylesheet" href="attendance.css">
+</head>
+<body>
+    <header>
+        <h1>CollegeHUB</h1>
+        <nav>
+            <ul>
+                <li><a href="/HomePage/index.html">Home</a></li>
+                <li><a href="/HomePage/CoursesPage/course.html">Courses</a></li>
+                <li><a href="/HomePage/SyllabusPage/syllabus.html">Syllabus</a></li>
+                <li><a href="#">Library</a></li>
+                <li><a href="/HomePage/Student_Attendance/attendance_student.html">Attendance</a></li>
+                <li><a href="/HomePage/Student_grade/grade.html">Grades</a></li>
+                <li><a href="/FrontPage/frontPage.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+<main>
+    <section id="attendance">
+        <h2>Your Attendance</h2>
+        <form id="view-attendance-form">
+            <label for="student-id">Student ID:</label>
+            <input type="text" id="student-id" name="student-id" required>
+            <button type="submit">View Attendance</button>
+        </form>
+        <div id="attendance-list"></div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 College Management System. All rights reserved.</p>
+</footer>
+
+<script>
+    document.getElementById('view-attendance-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const studentId = document.getElementById('student-id').value;
+        
+        // Get attendance data from local storage
+        const attendanceData = JSON.parse(localStorage.getItem('attendanceData')) || [];
+        const studentAttendance = attendanceData.filter(record => record.studentId === studentId);
+        
+        // Display attendance data
+        const attendanceListDiv = document.getElementById('attendance-list');
+        attendanceListDiv.innerHTML = '';
+
+        if (studentAttendance.length === 0) {
+            attendanceListDiv.textContent = 'No attendance records found for this student.';
+        } else {
+            const attendanceTable = document.createElement('table');
+            const tableHeader = `
+                <tr>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            `;
+            attendanceTable.innerHTML = tableHeader;
+
+            studentAttendance.forEach(record => {
+                const tableRow = `
+                    <tr>
+                        <td>${record.date}</td>
+                        <td>${record.status}</td>
+                    </tr>
+                `;
+                attendanceTable.innerHTML += tableRow;
+            });
+
+            attendanceListDiv.appendChild(attendanceTable);
+        }
+    });
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Dashboard</title>
+    <link rel="stylesheet" href="parent_dashboard.css">
+</head>
+<body>
+    <header>
+        <h1>CollegeHUB</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="view-attendance">View Attendance</a></li>
+                <li><a href="#" id="view-grades">View Grades</a></li>
+                <li><a href="/FrontPage/frontPage.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="info-section">
+            <h2>Welcome, Parent</h2>
+            <div id="content"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 CollegeHUB. All rights reserved.</p>
+    </footer>
+    <script>
+        document.getElementById('view-attendance').addEventListener('click', function() {
+            const studentId = localStorage.getItem('currentStudentId');
+            const attendanceData = JSON.parse(localStorage.getItem('attendanceData')) || [];
+            const studentAttendance = attendanceData.filter(record => record.studentId === studentId);
+
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = '<h3>Attendance Records</h3>';
+
+            if (studentAttendance.length === 0) {
+                contentDiv.innerHTML += '<p>No attendance records found for this student.</p>';
+            } else {
+                const table = document.createElement('table');
+                table.innerHTML = `
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                `;
+                const tbody = document.createElement('tbody');
+
+                studentAttendance.forEach(record => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${record.date}</td>
+                        <td>${record.status}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+
+                table.appendChild(tbody);
+                contentDiv.appendChild(table);
+            }
+        });
+
+        document.getElementById('view-grades').addEventListener('click', function() {
+            const studentId = localStorage.getItem('currentStudentId');
+            const gradesData = JSON.parse(localStorage.getItem('grades')) || [];
+            const studentGrades = gradesData.filter(record => record.studentId === studentId);
+
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = '<h3>Grade Records</h3>';
+
+            if (studentGrades.length === 0) {
+                contentDiv.innerHTML += '<p>No grade records found for this student.</p>';
+            } else {
+                const table = document.createElement('table');
+                table.innerHTML = `
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                `;
+                const tbody = document.createElement('tbody');
+
+                studentGrades.forEach(record => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${record.subject}</td>
+                        <td>${record.grade}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+
+                table.appendChild(tbody);
+                contentDiv.appendChild(table);
+            }
+        });
+    </script>
+</body>
+</html>

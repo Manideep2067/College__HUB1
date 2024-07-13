@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty - Attendance Tracker</title>
+    <link rel="stylesheet" href="attendance.css">
+</head>
+<body>
+
+<header>
+    <h1>CollegeHUB</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="/FacultyLogin/Home_faculty/SyllabusPage/syllabus.html">Syllabus</a></li>
+                <li><a href="#">Library</a></li>
+                <li><a href="/FacultyLogin/Home_faculty/AttendancePage/attendance.html">Attendance</a></li>
+                <li><a href="/FacultyLogin/Home_faculty/GradesPage/grades.html">Grades</a></li>
+                <li><a href="/FrontPage/frontPage.html">Logout</a></li>
+            </ul>
+        </nav>
+</header>
+
+<main>
+    <section id="attendance">
+        <h2>Mark Attendance</h2>
+        <form id="attendance-form">
+            <label for="student-id">Student ID:</label>
+            <input type="text" id="student-id" name="student-id" required>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+                <option value="Present">Present</option>
+                <option value="Absent">Absent</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="confirmation"></div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 CollegeHUB. All rights reserved.</p>
+</footer>
+
+<script>
+    document.getElementById('attendance-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const studentId = document.getElementById('student-id').value;
+        const date = document.getElementById('date').value;
+        const status = document.getElementById('status').value;
+        
+        // Save attendance data to local storage
+        let attendanceData = JSON.parse(localStorage.getItem('attendanceData')) || [];
+        attendanceData.push({ studentId, date, status });
+        localStorage.setItem('attendanceData', JSON.stringify(attendanceData));
+        
+        // Show confirmation
+        document.getElementById('confirmation').textContent = 'Attendance marked successfully!';
+        document.getElementById('attendance-form').reset();
+    });
+</script>
+
+</body>
+</html>

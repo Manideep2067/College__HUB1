@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Login</title>
+    <link rel="stylesheet" href="parentlogin.css">
+</head>
+<body>
+    <header>
+        <h1>CollegeHUB</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Parent Login</h2>
+            <form id="parent-login-form">
+                <label for="student-id">Student ID:</label>
+                <input type="text" id="student-id" name="student-id" required>
+                <button type="submit">Login</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 CollegeHUB. All rights reserved.</p>
+    </footer>
+    <script>
+        document.getElementById('parent-login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const studentId = document.getElementById('student-id').value;
+            localStorage.setItem('currentStudentId', studentId);
+            window.location.href = 'parent_dashboard.html';
+        });
+    </script>
+</body>
+</html>

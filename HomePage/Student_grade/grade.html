@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CollegeHUB - Student Grades</title>
+    <link rel="stylesheet" href="grade.css">
+</head>
+<body>
+    <header>
+        <h1>CollegeHUB</h1>
+        <nav>
+            <ul>
+                <li><a href="/HomePage/index.html" target="_self" >Home</a></li>
+                <li><a href="/HomePage/CoursesPage/course.html" target="_self" >Courses</a></li>
+                <li><a href="/HomePage/SyllabusPage/syllabus.html" target="_self" >Syllabus</a></li>
+                <li><a href="#">Library</a></li>
+                <li><a href="/HomePage/Student_Attendance/attendance_student.html" target="_self" >Attendance</a></li>
+                <li><a href="/HomePage/Student_grade/grade.html" target="_self" >Grades</a></li>
+                <li><a href="/FrontPage/frontPage.html" target="_self" >Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="grades-section">
+            <h2>Your Grades</h2>
+            <form id="grades-form">
+                <label for="student-id">Enter your Student ID:</label>
+                <input type="text" id="student-id" required>
+                <button type="button" onclick="getGrades()">Get Grades</button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody id="grades-tbody">
+                    <!-- Grades will be dynamically added here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 CollegeHUB. All rights reserved.</p>
+    </footer>
+    <script src="grade.js"></script>
+</body>
+</html>
